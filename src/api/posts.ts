@@ -1,6 +1,11 @@
-import { Post } from "../types/Posts";
+// Definimos la interfaz Post para tipar los datos que devuelve la API
+export interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
 
-export async function getPosts() {
+export async function getPosts(): Promise<Post[]> {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
     if (!response.ok) {
